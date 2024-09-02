@@ -22,7 +22,10 @@
     <Label text="Confirm Pwd:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
     <PasswordField fx:id="confirmPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-    <HBox spacing="15" alignment="BOTTOM_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="4">
+    <Label text="User Type:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <ChoiceBox fx:id="userTypeChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <HBox spacing="15" alignment="BOTTOM_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button text="confirm" onAction="#handleSignUp"/>
         <Button text="Back" onAction="#handleBackToLogIn"/>
     </HBox>

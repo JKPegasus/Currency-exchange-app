@@ -29,13 +29,14 @@ public class QueryTool {
         return 0;
     }
 
-    public static int addUserQuery(String username, String password) {
-        String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+    public static int addUserQuery(String username, String password, String userType) {
+        String sql = "INSERT INTO users (username, password, user_type) VALUES (?, ?, ?)";
 
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, username);
             pstmt.setString(2, password);
+            pstmt.setString(3, userType);
 
             return pstmt.executeUpdate();
         } catch (SQLException e) {
