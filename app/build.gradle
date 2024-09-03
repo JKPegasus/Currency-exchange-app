@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.1.0' // 更新到最新版本
+    id 'org.openjfx.javafxplugin' version '0.1.0' //
 }
 
 repositories {
@@ -11,13 +11,14 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'com.google.guava:guava:32.0.0-android'
     implementation 'org.postgresql:postgresql:42.7.2'
+    implementation 'org.jsoup:jsoup:1.16.1'
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17) // 使用与 JavaFX 版本兼容的 Java 版本
+        languageVersion = JavaLanguageVersion.of(17) //
     }
 }
 
@@ -34,8 +35,7 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-// 添加运行任务配置
 run {
-    // 如果你的项目不是模块化的，使用以下配置
+
     mainClass = 'org.example.App'
 }
