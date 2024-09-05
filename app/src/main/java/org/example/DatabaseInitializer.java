@@ -63,6 +63,5 @@ public class DatabaseInitializer {
         // Initialize the database
         initializeDatabase();
     }
-
 }
 
