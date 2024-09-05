@@ -49,7 +49,13 @@ public class SignUpController {
         if (password.equals(confirmPassword)) {
             System.out.println("Username: " + username + " Password: " + password);
             addUser(username, password, userType);
+            // Set the user session
+            UserSessionManager.LoggedIn(username, userType);
+            if (userType.equals("Admin")) {
+                switchScene("mainAdmin.fxml", usernameField.getScene());
+            } else if (userType.equals("User")) {
             switchScene("main.fxml", usernameField.getScene());
+            }
         } else {
             alertTool("Error Description", "Passwords do not match");
         }

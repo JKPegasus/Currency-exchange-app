@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.EditWindow">
+
+    <VBox spacing="10"
+          AnchorPane.topAnchor="40.0"
+          AnchorPane.rightAnchor="10.0">
+
+        <StackPane>
+            <Rectangle width="200" height="30" fill="#f0f0f0" stroke="BLACK"/>
+            <Label text="Editing Currency" style="-fx-font-weight: bold;"/>
+        </StackPane>
+
+        <Label text="Select the currency you wanna change: "/>
+        <ComboBox fx:id="currencyToEdit" maxWidth="Infinity"/>
+
+
+        <HBox spacing="10">
+            <Label text="Changed rate:"/>
+            <TextField fx:id="newRate"/>
+
+            <Button text="Confirm" onAction="#updateRate" maxWidth="Infinity" AnchorPane.topAnchor="20.0"/>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

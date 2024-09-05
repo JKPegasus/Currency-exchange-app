@@ -23,7 +23,11 @@ public class Helpers {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(MainController.class.getResource(fxmlFile)));
             Stage stage = (Stage) scene.getWindow();
-            stage.setScene(new Scene(root, 300, 275));
+            if (fxmlFile.contains("main")) {
+                stage.setScene(new Scene(root, 600, 450));
+            } else {
+                stage.setScene(new Scene(root, 300, 275));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

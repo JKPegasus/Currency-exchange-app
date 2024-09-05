@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.MainControllerAdmin"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.MainControllerAdmin">
+    <Label fx:id="welcomeText">
+        <AnchorPane.topAnchor>10.0</AnchorPane.topAnchor>
+        <AnchorPane.leftAnchor>10.0</AnchorPane.leftAnchor>
+    </Label>
 
+    <TableView fx:id="currenciesTable"
+               AnchorPane.topAnchor="40.0"
+               AnchorPane.leftAnchor="10.0"
+               prefHeight="390"
+               prefWidth="240">
+        <columns>
+            <TableColumn fx:id="nameColumn" text="Currency" prefWidth="100"/>
+            <TableColumn fx:id="rateColumn" text="Rate" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <VBox spacing="10"
+          AnchorPane.topAnchor="40.0"
+          AnchorPane.rightAnchor="10.0"
+          AnchorPane.leftAnchor="260.0">
+
+        <StackPane>
+            <Rectangle width="200" height="30" fill="#f0f0f0" stroke="BLACK"/>
+            <Label text="Currency Converter" style="-fx-font-weight: bold;"/>
+        </StackPane>
+
+        <Label text="Amount:"/>
+        <TextField fx:id="amountField"/>
+
+        <Label text="From:"/>
+        <ComboBox fx:id="fromCurrency" maxWidth="Infinity"/>
+
+        <Label text="To:"/>
+        <ComboBox fx:id="toCurrency" maxWidth="Infinity"/>
+
+        <Button text="Convert" onAction="#handleConvert" maxWidth="Infinity" AnchorPane.topAnchor="20.0"/>
+
+        <Label text="result"/>
+        <TextField fx:id="resultField"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="BOTTOM_RIGHT" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <Button text="Edit currencies" onAction="#editWindow"/>
+        <Button text="Log Out" onAction="#LoggedOut"/>
+    </HBox>
 </AnchorPane>

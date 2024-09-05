@@ -18,11 +18,21 @@ public class DatabaseInitializer {
             )
             """;
 
+    private static final String CREATE_CURRENCIES_TABLE_SQL = """
+            CREATE TABLE IF NOT EXISTS currencies (
+                id SERIAL PRIMARY KEY,
+                currency_name VARCHAR(50) UNIQUE NOT NULL,
+                currency_rate VARCHAR(50) NOT NULL,
+                currency_date TIMESTAMP WITH TIME ZONE
+            )
+            """;
+
     public static void initializeDatabase() {
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement()) {
 
             stmt.execute(CREATE_USER_TABLE_SQL);
+            stmt.execute(CREATE_CURRENCIES_TABLE_SQL);
 
         } catch (SQLException e) {
             System.out.println("Error while initializing database" + e.getMessage());
